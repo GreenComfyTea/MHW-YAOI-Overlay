@@ -30,7 +30,7 @@ jobs:
       
     - name: Zip the Build
       run: |
-        cd /home/runner/work/MHW-Yet-Another-Overlay-Interface/MHW-Yet-Another-Overlay-Interface/YetAnotherOverlayInterface/bin/Release/net8.0-windows10.0.19041.0 && zip -r YetAnotherOverlayInterface.zip *
+        cd /home/runner/work/MHW-YAOI-Overlay/MHW-YAOI-Overlay/YetAnotherOverlayInterface/bin/Release/net8.0-windows10.0.19041.0 && zip -r YetAnotherOverlayInterface.zip *
 
     - name: Expose Commit Data
       uses: rlespinasse/git-commit-data-action@v1
@@ -45,9 +45,9 @@ jobs:
         name: Build 0${{ github.run_number }} (${{ env.GIT_COMMIT_SHORT_SHA }})
         draft: false
         prerelease: true
-        body: '## [Main Repo](https://github.com/GreenComfyTea/MHW-Yet-Another-Overlay-Interface) | [Commit Files](https://github.com/GreenComfyTea/MHW-Yet-Another-Overlay-Interface/tree/${{ env.GIT_COMMIT_SHA }})'
+        body: '## [Main Repo](https://github.com/GreenComfyTea/MHW-YAOI-Overlay) | [Commit Files](https://github.com/GreenComfyTea/MHW-YAOI-Overlay/tree/${{ env.GIT_COMMIT_SHA }})'
         token: ${{ secrets.NIGHTLY_TOKEN }}
-        repo: MHW-Yet-Another-Overlay-Interface-Nightly
+        repo: MHW-YAOI-Overlay-Nightly
         
     - name: Upload Assets to Build Release
       id: upload-assets-to-build-release
@@ -56,7 +56,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.NIGHTLY_TOKEN }}
       with:
         upload_url: ${{ steps.create-build-release.outputs.upload_url }}
-        asset_path: /home/runner/work/MHW-Yet-Another-Overlay-Interface/MHW-Yet-Another-Overlay-Interface/YetAnotherOverlayInterface/bin/Release/net8.0-windows10.0.19041.0/YetAnotherOverlayInterface.zip
+        asset_path: /home/runner/work/MHW-YAOI-Overlay/MHW-YAOI-Overlay/YetAnotherOverlayInterface/bin/Release/net8.0-windows10.0.19041.0/YetAnotherOverlayInterface.zip
         asset_name: YetAnotherOverlayInterface_${{ github.run_number }}_${{ env.GIT_COMMIT_SHORT_SHA }}.zip
         asset_content_type: application/zip
         
@@ -71,9 +71,9 @@ jobs:
         draft: false
         allowUpdates: true
         removeArtifacts: true
-        body: '## [Main Repo](https://github.com/GreenComfyTea/MHW-Yet-Another-Overlay-Interface) | [Commit Files](https://github.com/GreenComfyTea/MHW-Yet-Another-Overlay-Interface/tree/${{ env.GIT_COMMIT_SHA }}) | Ignore the date shown for the release. This is the latest build.'
+        body: '## [Main Repo](https://github.com/GreenComfyTea/MHW-YAOI-Overlay) | [Commit Files](https://github.com/GreenComfyTea/MHW-YAOI-Overlay/tree/${{ env.GIT_COMMIT_SHA }}) | Ignore the date shown for the release. This is the latest build.'
         token: ${{ secrets.NIGHTLY_TOKEN }}
-        repo: MHW-Yet-Another-Overlay-Interface-Nightly
+        repo: MHW-YAOI-Overlay-Nightly
 
     - name: Upload Assets to Latest Release
       id: upload-assets-to-latest-release
@@ -82,6 +82,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.NIGHTLY_TOKEN }}
       with:
         upload_url: ${{ steps.update-latest-release.outputs.upload_url }}
-        asset_path: /home/runner/work/MHW-Yet-Another-Overlay-Interface/MHW-Yet-Another-Overlay-Interface/YetAnotherOverlayInterface/bin/Release/net8.0-windows10.0.19041.0/YetAnotherOverlayInterface.zip
+        asset_path: /home/runner/work/MHW-YAOI-Overlay/MHW-YAOI-Overlay/YetAnotherOverlayInterface/bin/Release/net8.0-windows10.0.19041.0/YetAnotherOverlayInterface.zip
         asset_name: YetAnotherOverlayInterface_${{ github.run_number }}_${{ env.GIT_COMMIT_SHORT_SHA }}.zip
         asset_content_type: application/zip
