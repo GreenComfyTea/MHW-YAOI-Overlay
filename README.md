@@ -1,3 +1,3 @@
-# MHW-Yet-Another-Overlay-Interface
+# MHW-YAOI
 
-Nightly: https://github.com/GreenComfyTea/MHW-Yet-Another-Overlay-Interface-Nightly/releases
+Nightly: https://github.com/GreenComfyTea/MHW-YAOI-Overlay-Nightly/releases
